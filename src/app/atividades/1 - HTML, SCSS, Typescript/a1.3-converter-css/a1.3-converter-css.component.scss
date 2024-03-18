@@ -1,13 +1,15 @@
+$background-color: black;
+
 .wrapper {
   border: 1px solid blue;
-}
 
-.wrapper .item {
-  border: 1px solid red;
-  width: 100px;
-  height: 100px;
-}
+  .item {
+    border: 1px solid red;
+    width: 100px;
+    height: 100px;
 
-.wrapper :nth-child(even) {
-  background-color: black;
+    &:nth-child(even) {
+      background-color: $background-color;
+    }
+  }
 }
