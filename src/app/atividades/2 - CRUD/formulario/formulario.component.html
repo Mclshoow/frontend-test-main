@@ -1,24 +1,71 @@
-<form style="display: flex;flex-direction: column;gap: 20px;">
-    <mat-form-field appearance="fill">
-        <mat-label>Nome</mat-label>
-        <input type="text" matInput placeholder="Digite algo">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Email</mat-label>
-        <input type="text" matInput placeholder="Digite algo">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Senha</mat-label>
-        <input type="text" matInput placeholder="Digite algo">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>CEP</mat-label>
-        <input type="text" matInput placeholder="Digite algo">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Logradouro</mat-label>
-        <input type="text" matInput placeholder="Digite algo">
-    </mat-form-field>
-    <button mat-raised-button>Salvar</button>
-    <button mat-raised-button matDialogClose>Cancelar</button>
-</form>
+<!DOCTYPE html>
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+
+<div>
+  <mat-card>
+    <mat-card-content>
+      <form
+        class="formulario"
+        [formGroup]="form"
+        (ngSubmit)="adicionarPessoa()"
+      >
+        <h2 class="nome">Nome</h2>
+        <mat-form-field class="full-width-input">
+          <input
+            matInput
+            placeholder="Digite o nome"
+            formControlName="nome"
+            required
+            minlength="3"
+            maxlength="30"
+          />
+          <mat-error> Nome é obrigatório </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input
+            type="email"
+            matInput
+            placeholder="Digite o e-mail"
+            formControlName="email"
+            required
+          />
+          <mat-error> E-mail é obrigatório</mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input
+            matInput
+            type="password"
+            placeholder="Digite a senha"
+            formControlName="senha"
+            required
+          />
+          <mat-error> Senha é obrigatório </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input
+            matInput
+            placeholder="Digite o CEP"
+            formControlName="cep"
+            required
+          />
+          <mat-error> CEP é obrigatório </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input
+            matInput
+            placeholder="Logradouro"
+            formControlName="logradouro"
+            required
+          />
+          <mat-error> Logradouro é obrigatório </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="adicionarPessoa()">
+          {{ pessoa ? "Editar" : "Adicionar" }}
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

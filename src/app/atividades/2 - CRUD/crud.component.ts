@@ -1,8 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog"
 import { FormularioComponent } from './formulario/formulario.component';
 //import { asLiteral } from '@angular/compiler/src/render3/view/util';
 import { FormControl } from '@angular/forms';
+
+interface Pessoa {
+  nome: string;
+  email: string;
+  senha: string;
+  cep: string;
+  logradouro: string;
+}
 
 @Component({
   selector: 'app-crud',
@@ -10,7 +18,6 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./crud.component.scss']
 })
 export class CrudComponent implements OnInit {
-
   constructor(private dialog: MatDialog) { }
 
   filtro = new FormControl()
@@ -36,16 +43,13 @@ export class CrudComponent implements OnInit {
   }
 
   editar(pessoa: Pessoa) {
-    this.dialog.open(FormularioComponent)
+    const dialogRef = this.dialog.open(FormularioComponent);
+    dialogRef.componentInstance?.editarPessoa(pessoa);
   }
 
   remover(pessoa: Pessoa) {
-    if (!confirm("Deseja remover a pessoa ${pessoa.nome}")) return
+    if (!confirm(`Deseja remover a pessoa ${pessoa.nome}`)) return
 
-    alert("removido com sucesso!")
+    alert("Removido com sucesso!")
   }
-}
-
-class Pessoa {
-  constructor(nome: string,) { }
 }
