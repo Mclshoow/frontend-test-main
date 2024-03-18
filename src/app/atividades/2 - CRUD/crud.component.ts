@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog"
 import { FormularioComponent } from './formulario/formulario.component';
-import { asLiteral } from '@angular/compiler/src/render3/view/util';
+//import { asLiteral } from '@angular/compiler/src/render3/view/util';
 import { FormControl } from '@angular/forms';
 
 @Component({
