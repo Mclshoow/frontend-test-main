@@ -1,0 +1,13 @@
+.wrapper {
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  border: 1px solid blue;
+
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+}
